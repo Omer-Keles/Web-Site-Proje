@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>İletişim Sayfası</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app" class="container">
+		<h2>İletişim Sayfası</h2>
+		<div id="iletisimFormu">
+            <form @submit.prevent="formGonder" @reset.prevent="formTemizle">
+				<div class="form-group">
+					<label for="adSoyad">Ad Soyad:</label>
+					<input type="text" class="form-control" v-model="adSoyad" placeholder="Adınız ve soyadınız" required>
+				</div>
+				<div class="form-group">
+					<label for="email">E-Mail Adresi:</label>
+					<input type="email" class="form-control" v-model="email" placeholder="E-Mail Adresiniz" required>
+				</div>
+				<div class="form-group">
+					<label for="konu">Konu:</label>
+					<select class="form-control" v-model="konu" required>
+						<option value="" selected disabled>Lütfen bir konu seçiniz</option>
+						<option value="Soru">Soru</option>
+						<option value="Öneri">Öneri</option>
+						<option value="Şikayet">Şikayet</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="mesaj">Mesaj:</label>
+					<textarea class="form-control" v-model="mesaj" placeholder="Mesajınız" required></textarea>
+				</div>
+				<button type="reset" class="btn btn-secondary" @click="temizle">Temizle</button>
+				<button type="submit" class="btn btn-primary" @click="gonder">Gönder</button>
+			</form>
+		</div>
+	</div>
+
+    <script>
+var app = new Vue({
+  el: '#iletisimFormu',
+  data: {
+    adSoyad: '',
+    email: '',
+    konu: '',
+    mesaj: ''
+  },
+  methods: {
+    gonder: function() {
+      if(this.adSoyad.trim() === '') {
+        alert('Lütfen ad ve soyadınızı girin.');
+        return;
+      }
+      if(this.email.trim() === '') {
+        alert('Lütfen e-mail adresinizi girin.');
+        return;
+      }
+      if(!isValidEmail(this.email.trim())) {
+        alert('Lütfen geçerli bir e-mail adresi girin.');
+        return;
+      }
+      if(this.konu.trim() === '') {
+        alert('Lütfen bir konu seçin.');
+        return;
+      }
+      if(this.mesaj.trim() === '') {
+        alert('Lütfen mesajınızı yazın.');
+        return;
+      }
+      
+      // Formu göndermek için gerekli kodlar burada yer alacak.
+      
+      // Form elemanlarını temizle.
+      this.adSoyad = '';
+      this.email = '';
+      this.konu = '';
+      this.mesaj = '';
+    },
+    temizle: function() {
+      this.adSoyad = '';
+      this.email = '';
+      this.konu = '';
+      this.mesaj = '';
+    }
+  }
+});
+
+function isValidEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+</script>
+</body>
+</html>
+    
+    
+    
+    
+    
