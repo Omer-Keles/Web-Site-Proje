@@ -1,105 +1,123 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="tr">
+
 <head>
-	<meta charset="UTF-8">
-	<title>İletişim Sayfası</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim Formu</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="iletisim_sayfasi_style.css">
 </head>
 <body>
-	<div id="app" class="container">
-		<h2>İletişim Sayfası</h2>
-		<div id="iletisimFormu">
-            <form @submit.prevent="formGonder" @reset.prevent="formTemizle">
-				<div class="form-group">
-					<label for="adSoyad">Ad Soyad:</label>
-					<input type="text" class="form-control" v-model="adSoyad" placeholder="Adınız ve soyadınız" required>
-				</div>
-				<div class="form-group">
-					<label for="email">E-Mail Adresi:</label>
-					<input type="email" class="form-control" v-model="email" placeholder="E-Mail Adresiniz" required>
-				</div>
-				<div class="form-group">
-					<label for="konu">Konu:</label>
-					<select class="form-control" v-model="konu" required>
-						<option value="" selected disabled>Lütfen bir konu seçiniz</option>
-						<option value="Soru">Soru</option>
-						<option value="Öneri">Öneri</option>
-						<option value="Şikayet">Şikayet</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="mesaj">Mesaj:</label>
-					<textarea class="form-control" v-model="mesaj" placeholder="Mesajınız" required></textarea>
-				</div>
-				<button type="reset" class="btn btn-secondary" @click="temizle">Temizle</button>
-				<button type="submit" class="btn btn-primary" @click="gonder">Gönder</button>
-			</form>
-		</div>
-	</div>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="hakkinda_sayfasi.html">Web Sitem</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="hakkinda_sayfasi.html">Hakkında</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ozgecmis_sayfasi.html">Özgeçmiş</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sehrim_sayfasi.html">Şehrimiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="takimimiz_sayfasi.html">Takımımız</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="filmler_sayfasi.html">Filmler</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="iletisim_sayfasi.html">İletişim</a>
+          </li>
+        </ul>
+        <div class="text-end">
+          <a href="giris_yap_sayfasi.html" class="btn btn-outline-light me-2">Giriş Yap</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="col-md-6">
+      <h1 class="text-center mt-5">İletişim Formu</h1>
 
-    <script>
-var app = new Vue({
-  el: '#iletisimFormu',
-  data: {
-    adSoyad: '',
-    email: '',
-    konu: '',
-    mesaj: ''
-  },
-  methods: {
-    gonder: function() {
-      if(this.adSoyad.trim() === '') {
-        alert('Lütfen ad ve soyadınızı girin.');
-        return;
-      }
-      if(this.email.trim() === '') {
-        alert('Lütfen e-mail adresinizi girin.');
-        return;
-      }
-      if(!isValidEmail(this.email.trim())) {
-        alert('Lütfen geçerli bir e-mail adresi girin.');
-        return;
-      }
-      if(this.konu.trim() === '') {
-        alert('Lütfen bir konu seçin.');
-        return;
-      }
-      if(this.mesaj.trim() === '') {
-        alert('Lütfen mesajınızı yazın.');
-        return;
-      }
-      
-      // Formu göndermek için gerekli kodlar burada yer alacak.
-      
-      // Form elemanlarını temizle.
-      this.adSoyad = '';
-      this.email = '';
-      this.konu = '';
-      this.mesaj = '';
-    },
-    temizle: function() {
-      this.adSoyad = '';
-      this.email = '';
-      this.konu = '';
-      this.mesaj = '';
+      <form id="iletisimFormu" class="mt-5" action="iletisim_mesaji.php" method="POST">
+        <div class="form-group">
+          <label for="ad">Adınız:</label>
+          <input type="text" id="ad" name="ad" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="soyad">Soyadınız:</label>
+          <input type="text" id="soyad" name="soyad" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-posta Adresiniz:</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="secenek">İlgili Konu:</label>
+          <select id="secenek" name="secenek" class="form-control" required>
+            <option value="">Seçiniz</option>
+            <option value="Oneri">Öneri</option>
+            <option value="Sikayet">Şikayet</option>
+            <option value="Soru">Soru</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mesaj">Mesajınız:</label>
+          <textarea id="mesaj" name="mesaj" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary mr-2" onclick="temizleForm()">Temizle</button>
+          <button type="submit" class="btn btn-primary" onclick="return gonderForm()">Gönder</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="bootstrap.js"></script>
+  <script>
+    function temizleForm() {
+      document.getElementById("iletisimFormu").reset();
     }
-  }
-});
 
-function isValidEmail(email) {
-  var re = /\S+@\S+\.\S+/;
-  return re.test(email);
-}
-</script>
+    function gonderForm() {
+      // Form elemanlarına ait değerleri al
+      const ad = document.getElementById("ad").value;
+      const soyad = document.getElementById("soyad").value;
+      const email = document.getElementById("email").value;
+      const secenek = document.getElementById("secenek").value;
+      const mesaj = document.getElementById("mesaj").value;
+
+      // Ad ve soyad kontrolü
+      const adSoyadRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+      if (!adSoyadRegex.test(ad) || !adSoyadRegex.test(soyad)) {
+        alert("Ad ve soyad alanları sadece harf içermelidir.");
+        return false;
+      }
+
+      // Email kontrolü
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Geçerli bir e-posta adresi girin.");
+        return false;
+      }
+
+      // Form verilerini kontrol et
+      if (ad.trim() === "" || soyad.trim() === "" || email.trim() === "" || secenek === "" || mesaj.trim() === "") {
+        alert("Lütfen tüm alanları doldurun.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
 </body>
+
 </html>
-    
-    
-    
-    
-    

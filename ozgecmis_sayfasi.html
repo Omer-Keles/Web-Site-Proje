@@ -1,66 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Özgeçmiş</title>
-    <style>
-      /* stiller burada olacak */
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Ad Soyad</h1>
-      <p>İletişim Bilgileri</p>
-    </header>
-    
-    <section>
-      <h2>Eğitim Bilgileri</h2>
-      <article>
-        <h3>Lisans</h3>
-        <p><strong>Üniversite Adı</strong>, Bölüm Adı, Mezuniyet Yılı</p>
-      </article>
-      <article>
-        <h3>Yüksek Lisans</h3>
-        <p><strong>Üniversite Adı</strong>, Bölüm Adı, Mezuniyet Yılı</p>
-      </article>
-    </section>
-    
-    <section>
-      <h2>İş Deneyimi</h2>
-      <article>
-        <h3>Şirket Adı</h3>
-        <p>Pozisyon, İşe Başlama ve Bitiş Tarihleri</p>
-        <ul>
-          <li>Görev 1</li>
-          <li>Görev 2</li>
-          <li>Görev 3</li>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Özgeçmiş</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="ozgecmis_sayfasi_style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="hakkinda_sayfasi.html">Web Sitem</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="hakkinda_sayfasi.html">Hakkında</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="ozgecmis_sayfasi.html">Özgeçmiş</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sehrim_sayfasi.html">Şehrimiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="takimimiz_sayfasi.html">Takımımız</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="filmler_sayfasi.html">Filmler</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="iletisim_sayfasi.html">İletişim</a>
+          </li>
         </ul>
-      </article>
-      <article>
-        <h3>Şirket Adı</h3>
-        <p>Pozisyon, İşe Başlama ve Bitiş Tarihleri</p>
-        <ul>
-          <li>Görev 1</li>
-          <li>Görev 2</li>
-        </ul>
-      </article>
-    </section>
-    
+        <div class="text-end">
+          <a href="giris_yap_sayfasi.html" class="btn btn-outline-light me-2">Giriş Yap</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
     <section>
-      <h2>Yetenekler ve Sertifikalar</h2>
-      <ul>
-        <li>Yetenek 1</li>
-        <li>Yetenek 2</li>
-        <li>Yetenek 3</li>
-      </ul>
-      <ul>
-        <li>Sertifika 1</li>
-        <li>Sertifika 2</li>
-      </ul>
+      <h2 class="mb-4">Eğitim</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Üniversite</h3>
+          <p><strong>Üniversite Adı:</strong> Sakarya Üniversitesi</p>
+          <p><strong>Bölüm:</strong> Bilgisayar Mühendisliği</p>
+          <p><strong>Yıl:</strong> 2022-2026</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Lise</h3>
+          <p><strong>Okul Adı:</strong> M.C.Ö.A.İ.H Lisesi</p>
+          <p><strong>Bölüm:</strong> Fen ve Sosyal Bilimler</p>
+          <p><strong>Yıl:</strong> 2017-2021</p>
+        </div>
+      </div>
     </section>
-    
-    <footer>
-      <p>Özgeçmiş oluşturma tarihi: Mayıs 2023</p>
-    </footer>
-  </body>
+
+    <section class="mt-5">
+      <h2 class="mb-4">Deneyim</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Sertifika 1</h3>
+          <p><strong>Sertifika Ad:</strong> Mobil Uygulama Geliştirme</p>
+          <p><strong>Yıl:</strong> 2023</p>
+          <p><strong>Açıklama:</strong> Flutter ile mobil uygulama geliştirme hakkında kurs aldım.</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Sertifika 2</h3>
+          <p><strong>Sertifika Ad:</strong> Windows Arayüzü Geliştirme</p>
+          <p><strong>Yıl:</strong> 2022</p>
+          <p><strong>Açıklama:</strong> C# ile windows arayüzü geliştirme hakkında kurs aldım.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="bg-light py-2">
+    <div class="container text-center">
+      <p>Web teknolojileri dersi için Ömer Keleş tarafından oluşturulmuştur.</p>
+      <p>
+        <a href="#">Başa Dön</a>
+      </p>
+    </div>
+  </footer>
+  <script src="bootstrap.js"></script>
+</body>
 </html>

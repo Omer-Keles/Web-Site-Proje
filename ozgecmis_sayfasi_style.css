@@ -1,0 +1,15 @@
+body {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+.container {
+    flex: 1;
+  }
+  
+footer {
+    background-color: lightgray;
+    padding: 10px 0;
+  }
+  
