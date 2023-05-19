@@ -24,3 +24,5 @@ Gerekli kontrolün javascript ile yapıldığı temizle ve gönder butonları i�
 başına navbar ekledim.
 
 Bilgileri post eden giriş yapma sayfası da ekledim.
+
+Her sayfanın sonuna footer eklemeye başladım.
