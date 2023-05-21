@@ -12,5 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   echo "<p><strong>E-posta:</strong> $email</p>";
   echo "<p><strong>İlgili Konu:</strong> $secenek</p>";
   echo "<p><strong>Mesaj:</strong> $mesaj</p>";
+  echo "<p> <a href='iletisim_sayfasi.html'>&lt;GERİ DÖN&gt;</a></p>";
 }
 ?>
